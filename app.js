@@ -9,26 +9,45 @@
 // Task 1 Adding New Tasks
 
 
-
+// Adding Task Name, Category, Deadline, Status as object
 let taskArray = [];
 let taskRoutine = { taskName: "", category: "", deadline: "", status: "" };
 let btnAddtask = document.getElementById("btnAddtask");
-// Task Name, Category, Deadline, Status as object
-// assigned the object to the variable and added it to a function
+let taskName = document.getElementById("taskName");
+let category = document.getElementById("category");
+let deadline = document.getElementById("deadline");
+let status = document.getElementById("status");
+
+// assigned the object to the array and added it to a function
 
 btnAddtask = addEventListener("click", function addtask() {
-    taskArray = taskRoutine.Value;
-    if (taskName === "" || category === "" || deadline === "") {
+
+    let task = {
+        name: taskName.value,
+        category: category.value,
+        deadline: deadline.value,
+        status: status.value,
+    };
+    if (taskName === "" || category === "" || deadline === "" || status === "") {
         alert("Please enter an item.")
         return;
     }
+    taskArray.push(task);
+    displayArray();
+    // to clear the input fields
+    taskNameInput.value = "";
+    categoryInput.value = "";
+    deadlineInput.value = "";
+    statusInput.value = "In Progress";
+
+    console.log(taskArray);
 });
 
 
 
 
 
-let taskArr = [];
+
 
 // Task 2 Displaying the Task List
 
