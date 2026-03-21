@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Management</title>
     <script defer src="app.js"></script>
 </head>
+
 <body>
     <H1>Task Management</H1>
 
-    <input id="taskName" type="text" placeholder="Enter a task"></input>
-     <input id="category" type="text" placeholder="Enter the category"></input>
-     <input id="deadline" type="text" placeholder="Enter the deadline"></input>
-      <input id="status" type="text" placeholder="Enter the status"></input>
-      <button id="btnAddtask">Add Task</button>
-      <ul class="listHead">Task List
+    <input id="taskName" type="text" placeholder="Enter a task">
+    <input id="category" type="text" placeholder="Enter the category">
+    <input id="deadline" type="text" placeholder="Enter the deadline">
+    <button id="btnAddtask">Add Task</button>
+    <select id="status" type="text" placeholder="Enter the status">
+        <option value="In Progress">In Progress</option>
+        <option value="Completed">Completed</option>
         
-        <ul id="taskList"></ul>
+        <H2 class="listHead">Task List</H2>
+
+        <ul id="taskArray"></ul>
 </body>
+
 </html>
