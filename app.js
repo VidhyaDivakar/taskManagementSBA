@@ -19,23 +19,21 @@ btnAddtask.addEventListener("click", function addtask() {
         category: category.value,
         deadline: deadline.value,
         status: status.value
-    };
+    }
     if (taskName.value === "" || category.value === "" || deadline.value === "" || status.value === "") {
         alert("Please enter all values.")
         return;
     }
-    console.log("The task is", task);
+
     taskArray.push(task);
     displayArray();
-    // to clear
-    //  the input fields
-    taskName.value = "";
+    taskName.value = "";  // to clear the input fields
     category.value = "";
     deadline.value = "";
     status.value = "In Progress";
 
     console.log(taskArray);
-    });
+});
 
 // Display Array
 function displayArray() {
