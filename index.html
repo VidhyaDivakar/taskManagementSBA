@@ -10,18 +10,28 @@
 
 <body>
     <H1>Task Management</H1>
+    <p id="date"></p>
 
     <input id="taskName" type="text" placeholder="Enter a task">
     <input id="category" type="text" placeholder="Enter the category">
-    <input id="deadline" type="text" placeholder="Enter the deadline">
+    <input id="deadline" type="date" placeholder="Enter the deadline">
     <button id="btnAddtask">Add Task</button>
     <select id="status" type="text" placeholder="Enter the status">
+        <option value="Not Assigned">Not Assigned</option>
+        <option value="Assigned">Assigned</option>
         <option value="In Progress">In Progress</option>
         <option value="Completed">Completed</option>
+        <option value="Overdue">Overdue</option>
+
     </select>
     <h2 class="listHead">Task List</h2>
 
     <ul id="taskArray"></ul>
+    <script>
+        const d = new Date();
+        document.getElementById("date").innerHTML = d;
+    </script>
+
 </body>
 
 </html>
