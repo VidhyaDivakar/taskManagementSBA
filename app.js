@@ -12,26 +12,39 @@ let status = document.getElementById("status");
 
 // assigned the object to the array and added it to a function
 btnAddtask.addEventListener("click", function addtask() {
+    const currentDate = new Date(); //declaring date as a constant
+    const taskDeadline = new Date(deadline.value); // declaring the deadline as date 
+    currentDate.setHours(0,0,0,0); // to compare only the date value and not the time
+    taskDeadline.setHours(0,0,0,0);
+
+    let checkStatus;
+    if (taskDeadline < currentDate) { // Task 3 checking the deadline with current date
+        checkStatus = "Overdue";
+    } else {
+        checkStatus = status.value;
+    }
     let task = {
         name: taskName.value,
         category: category.value,
         deadline: deadline.value,
-        status: status.value
+        status: checkStatus
+    }
+console.log("Deadline:", taskDeadline);
+console.log("Today:", currentDate);
+
+    if (taskName.value === "" || category.value === "" || deadline.value === "" || status.value === "") {
+        alert("Please enter all values.")
+        return;
     }
 
+    taskArray.push(task);
+    displayArray();
+    taskName.value = "";  // to clear the input fields
+    category.value = "";
+    deadline.value = "";
+    status.value = "In Progress";
 
-if (taskName.value === "" || category.value === "" || deadline.value === "" || status.value === "") {
-    alert("Please enter all values.")
-    return;
-}
-taskArray.push(task);
-displayArray();
-taskName.value = "";  // to clear the input fields
-category.value = "";
-deadline.value = "";
-status.value = "In Progress";
-
-console.log(taskArray);
+    console.log(taskArray);
 });
 
 // Task 2 function to Display Array
@@ -46,18 +59,7 @@ function displayArray() {
     });
 }
 
-// //Task 3 Updating Task Status 
-function updateStatus (){
-const currentDate = new Date();
-const taskDeadline = new Date(deadline.value);
-
-if (taskDeadline < currentDate){
-    status.value = "Overdue";
-    console.log("Past due");
-} else {
-    status.value = "In Progress"
-}
-}
+// //Task 3 Updating Task Status
 
 // function updateStatus() {
 //     const dueDate = new Date('2025-10-15');
