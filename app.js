@@ -10,6 +10,7 @@ let category = document.getElementById("category");
 let deadline = document.getElementById("deadline");
 let status = document.getElementById("status");
 
+
 // assigned the object to the array and added it to a function
 btnAddtask.addEventListener("click", function addtask() {
     const currentDate = new Date(); //declaring date as a constant
@@ -47,12 +48,23 @@ btnAddtask.addEventListener("click", function addtask() {
     console.log(taskArray);
 });
 
-// Task 2 function to Display Array; Task 3 Also adding logic to update tasks
+// Task 4 Function Filter Array by status
+let filterStatus = document.getElementById("filterStatus");
+
+filterStatus.addEventListener("change", function () {
+    displayArray();
+});
+
+// Task 2 function to Display Array; Task 3 Also adding logic to update, filter tasks
 function displayArray() {
+
     const list = document.getElementById("taskArray");
     list.innerHTML = ""; // clear previous list
-
+    const selectedFilter = filterStatus.value; // Adding Filter 
     taskArray.forEach((task, index) => {
+        if (selectedFilter !== "All" && task.status !== selectedFilter) {
+            return;
+        }
         const li = document.createElement("li");
         li.textContent = `${task.name} | ${task.category} | ${task.deadline} | `;
 
@@ -69,15 +81,19 @@ function displayArray() {
 
             statusSelect.appendChild(option);
         });
+        if (task.status === "Overdue") {
+            statusSelect.disabled = true;
+        }
         //  adding UI option to update task 
         statusSelect.addEventListener("change", function () {
             taskArray[index].status = statusSelect.value;
-            displayArray();
+            displayArray(); // to get the updates data after the status change, calling the function again
         });
         li.appendChild(statusSelect);
         list.appendChild(li);
     });
 }
+
 
 
 // //Task 3 Updating Task Status

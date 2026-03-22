@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Management</title>
+    <link rel="stylesheet" href="style.css">
     <script defer src="app.js"></script>
 </head>
 
@@ -25,6 +26,17 @@
     </select>
     <button id="btnAddtask">Add Task</button>
     <h2 class="listHead">Task List</h2>
+    <div>
+        <label for="filterStatus">Filter by task:</label>
+        <select id="filterStatus">
+            <option value="All">All</option>
+            <option value="Not Assigned">Not Assigned</option>
+            <option value="Not Assigned">Not Assigned</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+            <option value="Overdue">Overdue</option>
+        </select>
+    </div>
 
     <ul id="taskArray"></ul>
     <script>

@@ -1,0 +1,29 @@
+body {
+    background-color: black;
+}
+
+button {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: aqua;
+}
+
+input {
+    padding: 10px;
+    font-size: 14px;
+}
+
+h1 {
+    color: aqua
+}
+
+ul,li{
+    color: aqua;
+    font-size: 16px;
+}
+
+.listHead {
+    font-size:20px;
+
+
+}
