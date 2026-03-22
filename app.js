@@ -14,8 +14,8 @@ let status = document.getElementById("status");
 btnAddtask.addEventListener("click", function addtask() {
     const currentDate = new Date(); //declaring date as a constant
     const taskDeadline = new Date(deadline.value); // declaring the deadline as date 
-    currentDate.setHours(0,0,0,0); // to compare only the date value and not the time
-    taskDeadline.setHours(0,0,0,0);
+    currentDate.setHours(0, 0, 0, 0); // to compare only the date value and not the time
+    taskDeadline.setHours(0, 0, 0, 0);
 
     let checkStatus;
     if (taskDeadline < currentDate) { // Task 3 checking the deadline with current date
@@ -29,8 +29,8 @@ btnAddtask.addEventListener("click", function addtask() {
         deadline: deadline.value,
         status: checkStatus
     }
-console.log("Deadline:", taskDeadline);
-console.log("Today:", currentDate);
+    console.log("Deadline:", taskDeadline);
+    console.log("Today:", currentDate);
 
     if (taskName.value === "" || category.value === "" || deadline.value === "" || status.value === "") {
         alert("Please enter all values.")
@@ -47,17 +47,38 @@ console.log("Today:", currentDate);
     console.log(taskArray);
 });
 
-// Task 2 function to Display Array
+// Task 2 function to Display Array; Task 3 Also adding logic to update tasks
 function displayArray() {
     const list = document.getElementById("taskArray");
     list.innerHTML = ""; // clear previous list
 
     taskArray.forEach((task, index) => {
         const li = document.createElement("li");
-        li.textContent = `${task.name} | ${task.category} | ${task.deadline} | ${task.status}`;
+        li.textContent = `${task.name} | ${task.category} | ${task.deadline} | `;
+
+
+        const statusSelect = document.createElement("select"); // changing display only status to dropdown
+        ["Not Assigned", "In Progress", "Completed", "Overdue"].forEach(optionValue => {
+            const option = document.createElement("option");
+            option.value = optionValue;
+            option.textContent = optionValue;
+
+            if (task.status === optionValue) {
+                option.selected = true;
+            }
+
+            statusSelect.appendChild(option);
+        });
+        //  adding UI option to update task 
+        statusSelect.addEventListener("change", function () {
+            taskArray[index].status = statusSelect.value;
+            displayArray();
+        });
+        li.appendChild(statusSelect);
         list.appendChild(li);
     });
 }
+
 
 // //Task 3 Updating Task Status
 
