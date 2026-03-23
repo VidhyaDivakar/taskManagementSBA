@@ -3,9 +3,11 @@ body {
 }
 
 button {
-    padding: 10px;
+    padding: 12px;
+    margin: 20px;
     border-radius: 10px;
     background-color: aqua;
+    font-weight: bold;
 }
 
 input {
@@ -13,7 +15,7 @@ input {
     font-size: 14px;
 }
 
-h1 {
+h1, h2 {
     color: aqua
 }
 
@@ -24,6 +26,19 @@ ul,li{
 
 .listHead {
     font-size:20px;
+}
+#date {
+    color: blue;
+}
 
+.filter {
+color:aliceblue;
+padding: 10px;
+font-size: 14px;
+font-weight: bold;
+}
 
+#status {
+padding: 10px;
+font-size: 14px;
 }

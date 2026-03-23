@@ -93,29 +93,3 @@ function displayArray() {
         list.appendChild(li);
     });
 }
-
-
-
-// //Task 3 Updating Task Status
-
-// function updateStatus() {
-//     const dueDate = new Date('2025-10-15');
-//     const d = new Date();
-
-//     if (deadline.value > d) {
-//         status.value == Overdue; change itto not editable
-//         console.log('Past due');
-//     }
-// } else {
-//     status.value !== Overdue;
-// }
-
-
-
-
-
-// Automatically check each task’s deadline and mark tasks as “Overdue” if the current date has passed the deadline.
-// Update the displayed task list whenever a task’s status changes.
-
-
-// Hold Task 5 unitll today evening Persisting Task Data with Local Storage
